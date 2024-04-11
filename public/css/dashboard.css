@@ -1,0 +1,39 @@
+.dashboard_user_info{
+    padding: var(--container-padding);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+}
+.dashboard_sum_container{
+    padding: 5%;
+}
+.dashboard_middle{
+    width: 70%;
+}
+.dashboard_sum_area{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+    padding: var(--area-padding);
+}
+.percent{
+    width: max-content;
+    padding: 5px;
+    border-radius: 100px;
+    background-color: white;
+}
+.charts_container{
+    padding: var(--area-padding);
+    border: var(--border);
+    border-radius: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.charts{
+    padding: var(--area-padding);
+    margin-top: 30px;
+}
+.charts_select{
+    
+}
