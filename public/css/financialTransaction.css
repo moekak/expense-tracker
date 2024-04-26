@@ -1,0 +1,43 @@
+.expense_area{
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 14%;
+}
+.input_field{
+    display: flex;
+    flex-direction: column;
+}
+.create-expense-form{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+}
+.input{
+    border: 1.4px solid rgba(0, 0, 0, 0.315);
+    padding: 2%;
+    font-size: 15px;
+    border-radius: 5px;
+    margin-bottom: 5%;
+}
+.input:focus{
+    outline: none;
+}
+.date_img {
+    right: 2%;
+    top: 9%;
+}
+.select_field{
+    background-color: rgba(0, 0, 0, 0.062);
+    border: none;
+}
+.addBtn {
+    padding: 4.5% 2%;
+    background: black;
+    color: #fff;
+    border: none;
+    border-radius: 90px;
+    font-size: 16px;
+}

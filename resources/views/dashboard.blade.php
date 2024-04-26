@@ -4,40 +4,53 @@
 @endsection
 
 @section('title2')
-    <h2>Dashboard</h2>
+    <h2>Dashboard</h2><p></p>
 @endsection
 
 @section('content')
     <div class="dashboard_wrapper">
         <div class="dashboard_middle">
-            <div class="dashboard_user_info">
-                <img src="{{ asset('img/dummy.jpg') }}" alt="" class="user_icon">
-                <div class="dashboard_user_txt">
-                    <p>Good morning Jane Cooper</p>
-                    <small class="font_gray">Let's manage your wallet finance.</small>
+            <div class="top_area">
+                <div class="dashboard_user_info">
+                    @if (filter_var($user->image, FILTER_VALIDATE_URL))
+                        <img src="{{$user->image}}" alt="" class="user_icon">
+                    @else
+                        <img src="{{asset("storage/" . $user->image)}}" alt="" class="user_icon">
+                    @endif
+                    <div class="dashboard_user_txt">
+                        <p>Good morning {{ $user->name }}</p>
+                        <small class="font_gray">Let's manage your wallet finance.</small>
+                    </div>
                 </div>
+                <div class="calender_btn">
+                    <img src="{{asset("img/arrow2.png")}}" alt="" class="arrow_icon js_calenderBtn_left">
+                    <p class="js_calender_date">March 2025</p>
+                    <img src="{{asset("img/arrow.png")}}" alt="" class="arrow_icon js_calenderBtn_right">
+                </div>
+
             </div>
+            
             <div class="dashboard_sum_area">
                 <div class="dashboard_sum_container">
                     <div class="percent sml"><small>+8.8%</small></div>
                     <div class="margin_t10"></div>
                     <small>Total revenue</small>
                     <div class="margin_t10"></div>
-                    <h1>$320,000</h1>
+                    <h1>￥320,000</h1>
                 </div>
                 <div class="dashboard_sum_container">
                     <div class="percent sml"><small>+8.8%</small></div>
                     <div class="margin_t10"></div>
-                    <small>Total revenue</small>
+                    <small>Total expense</small>
                     <div class="margin_t10"></div>
-                    <h1>$320,000</h1>
+                    <h1>￥{{number_format($totalExpense, 0, '', ',')}}</h1>
                 </div>
                 <div class="dashboard_sum_container">
                     <div class="percent sml"><small>+8.8%</small></div>
                     <div class="margin_t10"></div>
-                    <small>Total revenue</small>
+                    <small>Total Profit</small>
                     <div class="margin_t10"></div>
-                    <h1>$320,000</h1>
+                    <h1>￥320,000</h1>
                     <div class="margin_t10"></div>
                 </div>
             </div>
@@ -118,13 +131,19 @@
                     <button><p class="sml">＋ Add card</p></button>
                 </div>
                 
-                <div class="credit_cards">
-                    <small>John Smith</small>
-                    <p class="credit_num">4143　****　****　**62</p>
+               <div class="credit_cards">
+                    <small>{{$cards[0]->card_holder_name}}</small>
+                    <p class="credit_num">{{$cards[0]->masked_card_number}}</p>
                     <div class="credit_bottom">
-                        <h3>$423, 007</h3>
-                        <img src="{{asset("img/mastercard.png")}}" alt="">
-                    </div>
+                        <h3>￥{{number_format($cards[0]->limited_amount, 0, '', ',')}}</h3>
+                        @if ($cards[0]->brand == "JCB")
+                            <img src="{{asset("img/jcb.png")}}" alt="">
+                        @else
+                            <img src="{{asset("img/mastercard.png")}}" alt="">
+                        @endif
+
+                        {{-- <img src="{{asset("img/mastercard.png")}}" alt=""> --}}
+                  </div>
                     
                 </div>
             </div>
@@ -177,4 +196,51 @@
             
         </div>
     </div>
+@endsection
+
+
+@section('script')
+    <script src="{{ asset('js/dashboard.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        var ctx = document.getElementById('chart').getContext('2d');
+        var chart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: @json($labels), // ラベルを設定
+            datasets: [
+                {
+                    label: 'Expense',
+                    data: @json($data), // データポイントを設定
+                    fill: false,
+                    borderColor: 'rgb(75, 192, 192)',
+                    tension: 0.1
+                },
+                {
+                    label: 'Income',
+                    data: @json($secondData), // 二つ目のデータポイントを設定
+                    fill: false,
+                    borderColor: 'rgb(255, 99, 132)',
+                    tension: 0.1
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Analytics'
+                }
+            },
+            scales: {
+                y: {
+                    suggestedMin: 30,
+                    suggestedMax: 50,
+                }
+            }
+        },
+    });
+
+    </script>
 @endsection

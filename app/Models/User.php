@@ -6,10 +6,28 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Models\TransactionCategory;
+use App\Models\FinancialCategory;
+use App\Models\Card;
 
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
+
+    public function transactionCategories()
+    {
+        return $this->hasMany(TransactionCategory::class);
+    }
+    public function financialCategories()
+    {
+        return $this->hasMany(FinancialCategory::class);
+    }
+
+    public function cards(){
+        return $this->hasMany(Card::class);
+    }
+
+    
 
     /**
      * The attributes that are mass assignable.
@@ -18,8 +36,10 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
-        'email',
         'password',
+        'image',
+        'user_id',
+        'line_id'
     ];
 
     /**

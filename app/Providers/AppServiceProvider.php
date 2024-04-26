@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Providers;
+use Illuminate\Support\Facades\Event;
+
 
 use Illuminate\Support\ServiceProvider;
 
@@ -9,9 +11,11 @@ class AppServiceProvider extends ServiceProvider
     /**
      * Register any application services.
      */
+ 
+
     public function register(): void
     {
-        //
+        // $this->app->register(EventServiceProvider::class);
     }
 
     /**
@@ -19,6 +23,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        Event::listen(function (\SocialiteProviders\Manager\SocialiteWasCalled $event) {
+            $event->extendSocialite('line', \SocialiteProviders\Line\Provider::class);
+        });
     }
 }

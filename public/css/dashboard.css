@@ -186,3 +186,22 @@ th, td{
     border: var(--border);
     border-radius: 10px;
 }
+.arrow_icon{
+    width: 20px;
+    cursor: pointer;
+}
+.calender_btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-right: 5%;
+}
+.top_area{
+    display: flex;
+    justify-content: space-between;
+}
+.js_calender_date{
+    width: 140px;
+    text-align: center;
+}
