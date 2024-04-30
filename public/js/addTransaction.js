@@ -16139,28 +16139,21 @@ $(document).ready(function () {
 // financialカテゴリの選択
 
 var financial_type_select = document.querySelector(".js_financial_categories");
+var financial_categories = document.querySelectorAll(".js_transaction_categoty");
+var select_btn = document.querySelector(".js_select_financialCategory");
 financial_type_select.addEventListener("input", function (e) {
   var category_id = e.target.value;
-  // fetch('/data', {  // POSTリクエストのURLとオプションを指定
-  //     method: "POST",
-  //     headers: {
-  //         "Content-Type": "application/json",
-  //         "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').content // CSRFトークンをヘッダーに含める
-  //     },
-  //     body: JSON.stringify({ category_id: category_id })  // サーバーに送るデータ
-  // })
-  // .then(response => {
-  //     if (!response.ok) {
-  //         throw new Error("サーバーエラーが発生しました。");
-  //     }
-  //     return response.json();
-  // })
-  // .then(data => {
-  //     console.log(data);  // レスポンスデータの処理
-  // })
-  // .catch(error => {
-  //     console.error('Error:', error);
-  // });
+  select_btn.disabled = false;
+  financial_categories.forEach(function (category) {
+    category.selected = false;
+    document.querySelector(".default_option").selected = true;
+    console.log(category.selected);
+    if (category.getAttribute("data-id") == category_id) {
+      category.style.display = "block";
+    } else {
+      category.style.display = "none";
+    }
+  });
 });
 })();
 

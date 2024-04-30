@@ -1,5 +1,6 @@
 @extends('layouts.default')
 @section('styles')
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
 @endsection
 
@@ -24,7 +25,7 @@
                 </div>
                 <div class="calender_btn">
                     <img src="{{asset("img/arrow2.png")}}" alt="" class="arrow_icon js_calenderBtn_left">
-                    <p class="js_calender_date">March 2025</p>
+                    <p class="js_calender_date">{{$currentDate}}</p>
                     <img src="{{asset("img/arrow.png")}}" alt="" class="arrow_icon js_calenderBtn_right">
                 </div>
 
@@ -36,21 +37,21 @@
                     <div class="margin_t10"></div>
                     <small>Total revenue</small>
                     <div class="margin_t10"></div>
-                    <h1>￥320,000</h1>
+                    <h1 class="js_total_revenue">￥{{number_format($totalRevenue, 0, '', ',')}}</h1>
                 </div>
                 <div class="dashboard_sum_container">
                     <div class="percent sml"><small>+8.8%</small></div>
                     <div class="margin_t10"></div>
                     <small>Total expense</small>
                     <div class="margin_t10"></div>
-                    <h1>￥{{number_format($totalExpense, 0, '', ',')}}</h1>
+                    <h1 class="js_total_expense">￥{{number_format($totalExpense, 0, '', ',')}}</h1>
                 </div>
                 <div class="dashboard_sum_container">
                     <div class="percent sml"><small>+8.8%</small></div>
                     <div class="margin_t10"></div>
                     <small>Total Profit</small>
                     <div class="margin_t10"></div>
-                    <h1>￥320,000</h1>
+                    <h1 class="js_total_profit">￥{{number_format(($totalRevenue - $totalExpense), 0, '', ',')}}</h1>
                     <div class="margin_t10"></div>
                 </div>
             </div>

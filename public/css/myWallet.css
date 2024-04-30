@@ -1,0 +1,54 @@
+.cards_container{
+    width: 34%;
+    border-right: var(--border);
+}
+.credit_area2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.credit_cards{
+    margin: 5% 0;
+    background-color: #f7f6f6 !important;
+    color: #333 !important;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px !important;
+}
+.wallet_container{
+    display: flex;
+}
+.transaction_area_top{
+    display: flex;
+    justify-content: space-between;
+}
+.transaction_area {
+    width: 60%;
+    padding: 2.5% 3%;
+    border-right: var(--border);
+}
+.transition_area{
+    width: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    border-radius: 0 !important;
+}
+table{
+    width: 108% !important;
+}
+th, td {
+    padding: 10px 0 !important;
+}
+.add_card{
+    background-color: #28a9a2 !important;
+    font-size: 23px;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}

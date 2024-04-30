@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Models\FinancialCategory;
 
 class FinancialTransactionRequest extends FormRequest
 {
@@ -28,6 +29,14 @@ class FinancialTransactionRequest extends FormRequest
             'financial_category_id' => ["required", "integer", 'exists:financial_categories,id'],
             'transaction_category_id' => ["required", "integer", "exists:transaction_categories,id"],
             'credit_card_id' => ["nullable", "integer", "exists:cards,id"]
+        ];
+    }
+
+    public function attributes()
+    {
+        return [
+            'financial_category_id' => 'Financial type',
+            'transaction_category_id' => "Transaction category"
         ];
     }
 }

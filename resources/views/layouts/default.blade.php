@@ -19,11 +19,11 @@
             <div class="margin_t50"></div>
             <div class="menu_tab">
                 <img src="{{ asset('img/dashboard.png') }}" alt="" class="header-icon">
-                <p>Dashboard</p>
+                <p><a href="{{route("dashboard")}}">Dashboard</a></p>
             </div>
             <div class="menu_tab">
                 <img src="{{ asset('img/wallet.png') }}" alt="" class="header-icon">
-                <p>My wallet</p>
+                <p><a href="{{route("wallet")}}">My wallet</a></p>
             </div>
             <div class="menu_tab">
                 <img src="{{ asset('img/analytics.png') }}" alt="" class="header-icon">
@@ -31,11 +31,11 @@
             </div>
             <div class="menu_tab">
                 <img src="{{ asset('img/cards.png') }}" alt="" class="header-icon">
-                <p>cards</p>
+                <p><a href="{{route("wallet")}}">Cards</a></p>
             </div>
             <div class="menu_tab">
                 <img src="{{ asset('img/setting.png') }}" alt="" class="header-icon">
-                <p>setting</p>
+                <p>Setting</p>
             </div>
             <div class="menu_tab">
                 <img src="{{ asset('img/cerate2.png') }}" alt="" class="header-icon">

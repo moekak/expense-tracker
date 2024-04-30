@@ -14,6 +14,7 @@
 }
 .dashboard_right{
     width: 30%;
+    border-right: var(--border);
 }
 .dashboard_sum_area{
     display: grid;
@@ -100,6 +101,7 @@ th, td{
 
 /* dashboard middle */
 .credit_cards{
+    width: 290px;
     background-color: #0c0c0c;
     color: #fff;
     padding: 5%;
