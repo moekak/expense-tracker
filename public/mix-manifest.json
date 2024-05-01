@@ -1,5 +1,6 @@
 {
     "/js/addTransaction.js": "/js/addTransaction.js",
     "/js/dashboard.js": "/js/dashboard.js",
+    "/js/addCreditCard.js": "/js/addCreditCard.js",
     "/js/jquery.min.js": "/js/jquery.min.js"
 }

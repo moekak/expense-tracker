@@ -1,4 +1,5 @@
 @extends('layouts.default')
+@extends('layouts.createCreditCard')
     
 @section('styles')
     <link rel="stylesheet" href="{{ asset('css/common.css') }}">
@@ -180,4 +181,8 @@
             
         </div>
     </div>
+@endsection
+
+@section('script')
+    <script src="{{ asset('js/addCreditCard.js') }}"></script>    
 @endsection

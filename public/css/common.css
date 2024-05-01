@@ -6,6 +6,11 @@
     --area-padding: 0px 30px;
     --font-gray: rgba(0, 0, 0, 0.575);
 }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 body{
     padding: 0;
     margin: 0;
